@@ -2,12 +2,16 @@
 <ul>
     {% recursetree rubrics %}
         <li>
-            <a href=""> {{node.name }} </a>
-            {% if not node.is_leaf_node %}
-                <ul class="children">
-                    {{ children }}
-                </ul>
-            {% endif %}
+            <details>
+                <summary>{{node.name }}</summary>
+                    <p>
+                        {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                        {% endif %}
+                    </p>
+            </details>
         </li>
     {% endrecursetree %}
 </ul>
